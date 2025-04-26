@@ -1,10 +1,17 @@
+import {Route, Routes} from "react-router"
+import MainLayout from "./layout/MainLayout"
+import Home from "./pages/Home/Home.jsx";
+
 function App() {
     return (
-        <>
-            <div>
-                <h2 className={"font-bold bg-amber-300"}>Animes</h2>
-            </div>
-        </>
+        <Routes>
+            <Route path="/" element={<MainLayout></MainLayout>}>
+                <Route index element={<Home></Home>}>
+
+                </Route>
+                {/* Add more routes here as needed */}
+            </Route>
+        </Routes>
     )
 }
 
