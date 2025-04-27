@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/AnimesCafe.png';
 import {Link, useLocation} from "react-router";
 
@@ -42,7 +41,6 @@ const Navbar = () => {
                             alt="Animes Cafe" 
                             className="h-10 w-auto rounded-sm transform transition-transform duration-300 group-hover:scale-110"
                         />
-
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -53,8 +51,8 @@ const Navbar = () => {
                                 to={link.path}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                     isActivePath(link.path)
-                                    ? 'bg-violet-500/20 text-violet-400'
-                                    : 'text-gray-300 hover:text-violet-400 hover:bg-white/5'
+                                    ? 'bg-sky-500/20 text-sky-400'
+                                    : 'text-gray-300 hover:text-sky-400 hover:bg-white/5'
                                 }`}
                             >
                                 {link.name}
@@ -62,7 +60,7 @@ const Navbar = () => {
                         ))}
                         <Link
                             to="/login"
-                            className="ml-4 px-6 py-2 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-violet-500/25"
+                            className="ml-4 px-6 py-2 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/25"
                         >
                             Sign In
                         </Link>
@@ -71,7 +69,7 @@ const Navbar = () => {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-violet-400 hover:bg-white/5 transition-colors duration-300"
+                        className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-sky-400 hover:bg-white/5 transition-colors duration-300"
                     >
                         <svg
                             className={`h-6 w-6 transition-transform duration-300 ${isMobileMenuOpen ? 'transform rotate-180' : ''}`}
@@ -102,8 +100,8 @@ const Navbar = () => {
                             to={link.path}
                             className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
                                 isActivePath(link.path)
-                                ? 'bg-violet-500/20 text-violet-400'
-                                : 'text-gray-300 hover:text-violet-400 hover:bg-white/5'
+                                ? 'bg-sky-500/20 text-sky-400'
+                                : 'text-gray-300 hover:text-sky-400 hover:bg-white/5'
                             }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
@@ -112,7 +110,7 @@ const Navbar = () => {
                     ))}
                     <Link
                         to="/login"
-                        className="block px-4 py-3 mt-2 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white text-base font-medium transition-all duration-300"
+                        className="block px-4 py-3 mt-2 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-base font-medium transition-all duration-300"
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
                         Sign In

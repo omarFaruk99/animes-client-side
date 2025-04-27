@@ -71,7 +71,7 @@ const AnimationSwiper = () => {
                         }}
                         className={`w-2 h-2 rounded-full transition-all duration-300 ${
                             index === currentIndex
-                                ? 'w-6 bg-violet-500'
+                                ? 'w-6 bg-sky-500'
                                 : 'bg-white/30 hover:bg-white/50'
                         }`}
                     />

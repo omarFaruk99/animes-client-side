@@ -11,8 +11,8 @@ const Home = () => {
     if (loading) return (
         <div className="min-h-screen flex items-center justify-center bg-[#0B1622]">
             <div className="flex flex-col items-center gap-4">
-                <div className="animate-spin rounded-full h-16 w-16 border-4 border-violet-500 border-t-transparent shadow-lg shadow-violet-500/20"></div>
-                <p className="text-violet-300 animate-pulse font-medium">Loading amazing content...</p>
+                <div className="animate-spin rounded-full h-16 w-16 border-4 border-sky-500 border-t-transparent shadow-lg shadow-sky-500/20"></div>
+                <p className="text-sky-300 animate-pulse font-medium">Loading amazing content...</p>
             </div>
         </div>
     );
@@ -23,12 +23,12 @@ const Home = () => {
             <section className="py-16 px-4">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-400">
+                        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-blue-500">
                             Top Rated Anime
                         </h2>
                         <Link
                             to="/top-anime"
-                            className="text-sm text-violet-400 hover:text-violet-300 transition-colors duration-300"
+                            className="text-sm text-sky-400 hover:text-sky-300 transition-colors duration-300"
                         >
                             View All →
                         </Link>

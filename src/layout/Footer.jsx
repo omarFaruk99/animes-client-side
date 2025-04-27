@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import logo from '../assets/AnimesCafe.png';
 import {Link} from "react-router";
 
@@ -72,7 +71,7 @@ const Footer = () => {
                                     href={link.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-400 hover:text-violet-400 transition-colors duration-300"
+                                    className="text-gray-400 hover:text-sky-400 transition-colors duration-300"
                                     aria-label={link.name}
                                 >
                                     {link.icon}
@@ -89,7 +88,7 @@ const Footer = () => {
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300 text-sm"
+                                        className="text-gray-400 hover:text-sky-400 transition-colors duration-300 text-sm"
                                     >
                                         {link.name}
                                     </Link>
@@ -106,7 +105,7 @@ const Footer = () => {
                                 <li key={category}>
                                     <Link
                                         to={`/category/${category.toLowerCase()}`}
-                                        className="text-gray-400 hover:text-violet-400 transition-colors duration-300 text-sm"
+                                        className="text-gray-400 hover:text-sky-400 transition-colors duration-300 text-sm"
                                     >
                                         {category}
                                     </Link>
@@ -125,11 +124,11 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="w-full px-4 py-2.5 bg-white/10 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-violet-500 focus:border-violet-500"
+                                className="w-full px-4 py-2.5 bg-white/10 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
                             />
                             <button
                                 type="submit"
-                                className="w-full px-4 py-2.5 rounded-lg bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-violet-500/25"
+                                className="w-full px-4 py-2.5 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/25"
                             >
                                 Subscribe
                             </button>
