@@ -1,112 +1,76 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAnimeData } from '../../hooks/useAnimeData';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, FreeMode, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 import './styles.css';
 
 const AnimationSwiper = () => {
-    const { data: animes } = useAnimeData('featured');
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(false);
-
-    useEffect(() => {
-        if (!animes?.length) return;
-
-        const interval = setInterval(() => {
-            setIsTransitioning(true);
-            setTimeout(() => {
-                setCurrentIndex((prev) => (prev + 1) % animes.length);
-                setIsTransitioning(false);
-            }, 500);
-        }, 5000);
-
-        return () => clearInterval(interval);
-    }, [animes]);
+    const { data: animes } = useAnimeData('featuredAnime');
 
     if (!animes?.length) return null;
 
-    const currentAnime = animes[currentIndex];
-    const nextIndex = (currentIndex + 1) % animes.length;
-    const nextAnime = animes[nextIndex];
-
     return (
-        <div className="relative w-full h-full overflow-hidden">
-            {/* Current Slide */}
-            <div
-                className={`absolute inset-0 transition-opacity duration-500 ${
-                    isTransitioning ? 'opacity-0' : 'opacity-100'
-                }`}
+        <div className="w-full h-full">
+            <Swiper
+                modules={[Pagination, FreeMode, Autoplay]}
+                slidesPerView={1}
+                spaceBetween={20}
+                freeMode={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                breakpoints={{
+                    // when window width is >= 640px (sm)
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    // when window width is >= 768px (md)
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    // when window width is >= 1024px (lg)
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }}
+                className="mySwiper"
             >
-                <img
-                    src={currentAnime.image}
-                    alt=""
-                    className="w-full h-full object-cover opacity-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1622] via-[#0B1622]/60 to-transparent"></div>
-            </div>
-
-            {/* Next Slide (Preload) */}
-            <div
-                className={`absolute inset-0 transition-opacity duration-500 ${
-                    isTransitioning ? 'opacity-100' : 'opacity-0'
-                }`}
-            >
-                <img
-                    src={nextAnime.image}
-                    alt=""
-                    className="w-full h-full object-cover opacity-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B1622] via-[#0B1622]/60 to-transparent"></div>
-            </div>
-
-            {/* Indicator Dots */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-                {animes.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => {
-                            setIsTransitioning(true);
-                            setTimeout(() => {
-                                setCurrentIndex(index);
-                                setIsTransitioning(false);
-                            }, 500);
-                        }}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            index === currentIndex
-                                ? 'w-6 bg-sky-500'
-                                : 'bg-white/30 hover:bg-white/50'
-                        }`}
-                    />
+                {animes.map((anime) => (
+                    <SwiperSlide key={anime.id}>
+                        <div className="relative w-full h-full group rounded-lg overflow-hidden">
+                            <img
+                                src={anime.image}
+                                alt={anime.title}
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
+                                <div className="absolute bottom-0 p-4 text-left">
+                                    <h3 className="text-lg font-semibold text-white">{anime.title}</h3>
+                                    <div className="flex items-center gap-2 mt-2">
+                                        <div className="flex items-center gap-1">
+                                            <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                            </svg>
+                                            <span className="text-yellow-400">{anime.rating}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
                 ))}
-            </div>
-
-            {/* Navigation Buttons */}
-            <button
-                onClick={() => {
-                    setIsTransitioning(true);
-                    setTimeout(() => {
-                        setCurrentIndex((prev) => (prev - 1 + animes.length) % animes.length);
-                        setIsTransitioning(false);
-                    }, 500);
-                }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/30 text-white/70 hover:bg-black/50 hover:text-white transition-all duration-300"
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
-            <button
-                onClick={() => {
-                    setIsTransitioning(true);
-                    setTimeout(() => {
-                        setCurrentIndex((prev) => (prev + 1) % animes.length);
-                        setIsTransitioning(false);
-                    }, 500);
-                }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-black/30 text-white/70 hover:bg-black/50 hover:text-white transition-all duration-300"
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
+            </Swiper>
         </div>
     );
 };

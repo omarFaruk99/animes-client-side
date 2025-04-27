@@ -1,12 +1,10 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { useAnimeData } from '../../hooks/useAnimeData';
 import AnimationSwiper from '../../components/animations/AnimationSwiper';
 import {Link} from "react-router";
 
 const Home = () => {
     const { data: topAnimes, loading } = useAnimeData('topAnime');
-    const { data: newReleases } = useAnimeData('newReleases');
 
     if (loading) return (
         <div className="min-h-screen flex items-center justify-center bg-[#0B1622]">
@@ -19,6 +17,33 @@ const Home = () => {
 
     return (
         <div className="min-h-screen bg-[#0B1622] text-white pb-16">
+            {/* Hero Section with Animation Swiper */}
+            <section className="pt-20 px-4">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg animate-fadeIn">
+                            Discover Amazing Anime
+                        </h1>
+                        <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mt-4 drop-shadow-lg animate-fadeIn animate-delay-200">
+                            Explore the best anime series and movies, all in one place
+                        </p>
+                    </div>
+                    
+                    <div className="h-[450px] mb-8">
+                        <AnimationSwiper />
+                    </div>
+
+                    <div className="text-center">
+                        <Link 
+                            to="/top-anime"
+                            className="inline-block px-8 py-3 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/25 animate-fadeIn animate-delay-300"
+                        >
+                            Browse Top Anime
+                        </Link>
+                    </div>
+                </div>
+            </section>
+            
             {/* Top Anime Section */}
             <section className="py-16 px-4">
                 <div className="max-w-7xl mx-auto">
@@ -54,7 +79,7 @@ const Home = () => {
                                                 <svg className="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                                 </svg>
-                                                <span className="text-sm text-yellow-400">{anime.rating}</span>
+                                                <span className="text-yellow-400">{anime.rating}</span>
                                             </div>
                                             <span className="text-xs text-gray-400">{anime.year}</span>
                                         </div>
