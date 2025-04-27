@@ -1,0 +1,158 @@
+{
+  "topAnime": [
+    {
+      "id": 1,
+      "rank": 1,
+      "title": "Fullmetal Alchemist: Brotherhood",
+      "year": 2009,
+      "members": "3.2M",
+      "rating": "9.1",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/1223/96541.jpg",
+      "description": "After a failed alchemical ritual leaves brothers Edward and Alphonse Elric with severely damaged bodies, they begin searching for the one thing that can save them; the legendary Philosopher's Stone."
+    },
+    {
+      "id": 2,
+      "rank": 2,
+      "title": "Steins;Gate",
+      "year": 2011,
+      "members": "2.8M",
+      "rating": "9.0",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/5/73199.jpg",
+      "description": "A self-proclaimed mad scientist discovers a way to time travel through a microwave, leading to a complex web of time manipulation and its consequences on the future of mankind."
+    },
+    {
+      "id": 3,
+      "rank": 3,
+      "title": "Attack on Titan Season 3 Part 2",
+      "year": 2019,
+      "members": "2.5M",
+      "rating": "9.0",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/1517/100633.jpg",
+      "description": "As the Survey Corps plans to retake Wall Maria, they uncover dark secrets about their world. The truth behind the Titans and their own existence will shake humanity to its core."
+    },
+    {
+      "id": 4,
+      "rank": 4,
+      "title": "Death Note",
+      "year": 2006,
+      "members": "3.0M",
+      "rating": "8.9",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+      "description": "A high school student discovers a supernatural notebook that allows him to kill anyone by writing the victim's name, leading him to attempt to create a crime-free world as a god-like vigilante."
+    },
+    {
+      "id": 5,
+      "rank": 5,
+      "title": "Demon Slayer",
+      "year": 2019,
+      "members": "2.7M",
+      "rating": "8.9",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+      "description": "In Taisho-era Japan, Tanjiro Kamado becomes a demon slayer after his family is slaughtered and his sister turned into a demon. He embarks on a dangerous journey to cure his sister and avenge his family."
+    },
+    {
+      "id": 6,
+      "rank": 6,
+      "title": "One Punch Man",
+      "year": 2015,
+      "members": "2.9M",
+      "rating": "8.7",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+      "description": "Saitama is a hero who only became a hero for fun. After three years of special training, he's become so strong that he's practically invincible. In fact, he's too strong—even his mightiest opponents are taken out with a single punch."
+    },
+    {
+      "id": 7,
+      "rank": 7,
+      "title": "My Hero Academia",
+      "year": 2016,
+      "members": "2.6M",
+      "rating": "8.5",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+      "description": "In a world where 80% of the population has superpowers, Izuku Midoriya, a boy born without powers, enrolls in a prestigious hero academy to fulfill his dream of becoming the greatest hero."
+    },
+    {
+      "id": 8,
+      "rank": 8,
+      "title": "Hunter x Hunter (2011)",
+      "year": 2011,
+      "members": "2.4M",
+      "rating": "9.0",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/1337/99013.jpg",
+      "description": "Gon Freecss aspires to become a Hunter, an exceptional being capable of greatness. With his friends and his potential, he seeks for his father who left him when he was younger."
+    },
+    {
+      "id": 9,
+      "rank": 9,
+      "title": "Jujutsu Kaisen",
+      "year": 2020,
+      "members": "2.3M",
+      "rating": "8.8",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+      "description": "Yuji Itadori, a high school student with extraordinary physical abilities, gets involved in the world of Cursed Spirits after swallowing a powerful cursed object to save his friends."
+    },
+    {
+      "id": 10,
+      "rank": 10,
+      "title": "Code Geass",
+      "year": 2006,
+      "members": "2.2M",
+      "rating": "8.7",
+      "status": false,
+      "image": "https://cdn.myanimelist.net/images/anime/5/50331.jpg",
+      "description": "After being exiled from his homeland, Lelouch, a prince of the Britannian Empire, gains the power to control others' minds. He uses this ability to lead a rebellion against his father's empire."
+    }
+  ],
+  "featuredAnime": [
+    {
+      "id": 1,
+      "title": "Attack on Titan",
+      "image": "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+      "rating": "9.0",
+      "description": "Humanity lives inside cities surrounded by enormous walls due to the Titans, gigantic humanoid creatures who devour humans seemingly without reason."
+    },
+    {
+      "id": 2,
+      "title": "Death Note",
+      "image": "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+      "rating": "8.9",
+      "description": "A high school student discovers a supernatural notebook that allows him to kill anyone by writing the victim's name, leading him to attempt to create a crime-free world."
+    },
+    {
+      "id": 3,
+      "title": "Fullmetal Alchemist",
+      "image": "https://cdn.myanimelist.net/images/anime/1223/96541.jpg",
+      "rating": "9.1",
+      "description": "Two brothers search for the Philosopher's Stone after an attempt to revive their dead mother goes wrong, leading to the loss of their bodies."
+    },
+    {
+      "id": 4,
+      "title": "One Punch Man",
+      "image": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+      "rating": "8.7",
+      "description": "The story of Saitama, a hero who can defeat any opponent with a single punch but seeks to find a worthy opponent after growing bored by a lack of challenge."
+    },
+    {
+      "id": 5,
+      "title": "Demon Slayer",
+      "image": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+      "rating": "8.9",
+      "description": "A young boy becomes a demon slayer after his family is slaughtered and his sister is turned into a demon, seeking to restore her humanity."
+    },
+    {
+      "id": 6,
+      "title": "My Hero Academia",
+      "image": "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+      "rating": "8.5",
+      "description": "In a world of superheroes, a powerless boy enrolls in a prestigious hero academy to become the greatest hero, like his idol All Might."
+    }
+  ]
+}

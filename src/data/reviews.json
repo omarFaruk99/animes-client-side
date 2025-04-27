@@ -1,0 +1,365 @@
+{
+  "reviews": {
+    "1": [
+      {
+        "id": 1,
+        "reviewerId": "user1",
+        "reviewerName": "Sarah Johnson",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/1.jpg",
+        "rating": 9.5,
+        "date": "2025-04-20",
+        "content": "Fullmetal Alchemist: Brotherhood is a masterpiece that perfectly balances action, drama, and philosophy. The character development is extraordinary, and the plot twists keep you engaged throughout the series.",
+        "likes": 234,
+        "helpful": true
+      },
+      {
+        "id": 2,
+        "reviewerId": "user2",
+        "reviewerName": "Michael Chen",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/2.jpg",
+        "rating": 9.0,
+        "date": "2025-04-15",
+        "content": "An incredible journey that explores the consequences of human ambition and the price of playing god. The animation quality and music score are top-notch.",
+        "likes": 156,
+        "helpful": true
+      },
+      {
+        "id": 12,
+        "reviewerId": "user12",
+        "reviewerName": "Thomas Wright",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/12.jpg",
+        "rating": 9.3,
+        "date": "2025-04-23",
+        "content": "The emotional depth in FMAB is unmatched. The way it handles themes of family, sacrifice, and equivalent exchange is masterful. Every rewatch reveals new layers of meaning.",
+        "likes": 178,
+        "helpful": true
+      },
+      {
+        "id": 13,
+        "reviewerId": "user13",
+        "reviewerName": "Anna Martinez",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/13.jpg",
+        "rating": 9.4,
+        "date": "2025-04-21",
+        "content": "The worldbuilding is phenomenal. The alchemy system is well-thought-out and consistent. The political intrigue adds another fascinating layer to the story.",
+        "likes": 203,
+        "helpful": true
+      }
+    ],
+    "2": [
+      {
+        "id": 3,
+        "reviewerId": "user3",
+        "reviewerName": "Emily Wilson",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/3.jpg",
+        "rating": 9.2,
+        "date": "2025-04-22",
+        "content": "Steins;Gate starts slow but evolves into one of the most intricate and well-thought-out time travel stories ever told. The character interactions are phenomenal.",
+        "likes": 189,
+        "helpful": true
+      },
+      {
+        "id": 14,
+        "reviewerId": "user14",
+        "reviewerName": "Robert Turner",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/14.jpg",
+        "rating": 9.1,
+        "date": "2025-04-20",
+        "content": "The second half of Steins;Gate is a rollercoaster of emotions. The character development of Okabe is one of the best I've seen in anime.",
+        "likes": 167,
+        "helpful": true
+      },
+      {
+        "id": 15,
+        "reviewerId": "user15",
+        "reviewerName": "Maria Garcia",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/15.jpg",
+        "rating": 9.3,
+        "date": "2025-04-19",
+        "content": "The attention to detail in the time travel mechanics is impressive. Every small detail becomes significant later. The show rewards attentive viewers.",
+        "likes": 198,
+        "helpful": true
+      }
+    ],
+    "3": [
+      {
+        "id": 4,
+        "reviewerId": "user4",
+        "reviewerName": "David Kim",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/4.jpg",
+        "rating": 9.5,
+        "date": "2025-04-18",
+        "content": "Attack on Titan Season 3 Part 2 elevates the series to new heights. The revelations about the world and its history are mind-blowing. The animation during action scenes is spectacular.",
+        "likes": 312,
+        "helpful": true
+      },
+      {
+        "id": 16,
+        "reviewerId": "user16",
+        "reviewerName": "Kevin Parker",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/16.jpg",
+        "rating": 9.4,
+        "date": "2025-04-17",
+        "content": "The plot twists in AOT S3P2 completely change how you view the entire series. The animation quality during the big reveals is breathtaking.",
+        "likes": 287,
+        "helpful": true
+      },
+      {
+        "id": 17,
+        "reviewerId": "user17",
+        "reviewerName": "Rachel Cohen",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/17.jpg",
+        "rating": 9.6,
+        "date": "2025-04-16",
+        "content": "This season turns AOT from a great action series into a masterpiece of storytelling. The moral complexity and political themes are handled brilliantly.",
+        "likes": 342,
+        "helpful": true
+      }
+    ],
+    "4": [
+      {
+        "id": 5,
+        "reviewerId": "user5",
+        "reviewerName": "Lisa Anderson",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/5.jpg",
+        "rating": 9.0,
+        "date": "2025-04-19",
+        "content": "Death Note is a psychological thriller that keeps you on the edge of your seat. The cat-and-mouse game between Light and L is brilliantly written.",
+        "likes": 245,
+        "helpful": true
+      },
+      {
+        "id": 18,
+        "reviewerId": "user18",
+        "reviewerName": "Daniel Lewis",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/18.jpg",
+        "rating": 9.1,
+        "date": "2025-04-15",
+        "content": "Death Note excels at creating tension even in simple conversations. The psychological warfare between Light and L is unmatched in anime.",
+        "likes": 276,
+        "helpful": true
+      },
+      {
+        "id": 19,
+        "reviewerId": "user19",
+        "reviewerName": "Isabella Wang",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/19.jpg",
+        "rating": 8.9,
+        "date": "2025-04-14",
+        "content": "The moral ambiguity in Death Note makes it endlessly fascinating. It challenges viewers to question their own sense of justice.",
+        "likes": 198,
+        "helpful": true
+      }
+    ],
+    "5": [
+      {
+        "id": 6,
+        "reviewerId": "user6",
+        "reviewerName": "James Martinez",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/6.jpg",
+        "rating": 9.2,
+        "date": "2025-04-21",
+        "content": "Demon Slayer's animation is breathtaking. The story is compelling, and the character development, especially Tanjiro's, is very well done. The fight scenes are spectacular.",
+        "likes": 278,
+        "helpful": true
+      },
+      {
+        "id": 20,
+        "reviewerId": "user20",
+        "reviewerName": "Marcus Johnson",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/20.jpg",
+        "rating": 9.3,
+        "date": "2025-04-13",
+        "content": "Demon Slayer's animation sets a new standard for the industry. The emotional core of family bonds makes the spectacular action meaningful.",
+        "likes": 312,
+        "helpful": true
+      },
+      {
+        "id": 21,
+        "reviewerId": "user21",
+        "reviewerName": "Sophie Zhang",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/21.jpg",
+        "rating": 9.1,
+        "date": "2025-04-12",
+        "content": "The blend of traditional Japanese folklore with modern animation techniques creates something unique. Each episode is visually stunning.",
+        "likes": 265,
+        "helpful": true
+      }
+    ],
+    "6": [
+      {
+        "id": 7,
+        "reviewerId": "user7",
+        "reviewerName": "Emma Thompson",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/7.jpg",
+        "rating": 8.8,
+        "date": "2025-04-17",
+        "content": "One Punch Man perfectly balances action and comedy. Saitama's character is refreshing, and the series' satire of superhero tropes is brilliant.",
+        "likes": 198,
+        "helpful": true
+      },
+      {
+        "id": 22,
+        "reviewerId": "user22",
+        "reviewerName": "Christopher Lee",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/22.jpg",
+        "rating": 8.9,
+        "date": "2025-04-11",
+        "content": "One Punch Man's parody elements work because it also delivers genuine superhero action. The animation quality is consistently impressive.",
+        "likes": 187,
+        "helpful": true
+      },
+      {
+        "id": 23,
+        "reviewerId": "user23",
+        "reviewerName": "Victoria Adams",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/23.jpg",
+        "rating": 8.7,
+        "date": "2025-04-10",
+        "content": "The show's commentary on hero society and fame is surprisingly deep. Saitama's character development is subtle but meaningful.",
+        "likes": 156,
+        "helpful": true
+      }
+    ],
+    "7": [
+      {
+        "id": 8,
+        "reviewerId": "user8",
+        "reviewerName": "Alex Rodriguez",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/8.jpg",
+        "rating": 8.7,
+        "date": "2025-04-16",
+        "content": "My Hero Academia brings fresh energy to the superhero genre. The character development and world-building are excellent.",
+        "likes": 167,
+        "helpful": true
+      },
+      {
+        "id": 24,
+        "reviewerId": "user24",
+        "reviewerName": "Nathan Taylor",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/24.jpg",
+        "rating": 8.8,
+        "date": "2025-04-09",
+        "content": "My Hero Academia's approach to the superhero genre feels fresh. The focus on education and growth gives it a unique perspective.",
+        "likes": 178,
+        "helpful": true
+      },
+      {
+        "id": 25,
+        "reviewerId": "user25",
+        "reviewerName": "Olivia Wilson",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/25.jpg",
+        "rating": 8.9,
+        "date": "2025-04-08",
+        "content": "The diverse cast of characters each get their moment to shine. The way quirks are integrated into society is well thought out.",
+        "likes": 201,
+        "helpful": true
+      }
+    ],
+    "8": [
+      {
+        "id": 9,
+        "reviewerId": "user9",
+        "reviewerName": "Sophie Brown",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/9.jpg",
+        "rating": 9.3,
+        "date": "2025-04-23",
+        "content": "Hunter x Hunter (2011) is a masterclass in storytelling. Each arc brings something new and exciting, and the power system is one of the most well-thought-out in anime.",
+        "likes": 289,
+        "helpful": true
+      },
+      {
+        "id": 26,
+        "reviewerId": "user26",
+        "reviewerName": "William Clark",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/26.jpg",
+        "rating": 9.4,
+        "date": "2025-04-07",
+        "content": "Hunter x Hunter's Chimera Ant arc is a masterpiece of storytelling. The way it explores humanity and morality is unprecedented.",
+        "likes": 345,
+        "helpful": true
+      },
+      {
+        "id": 27,
+        "reviewerId": "user27",
+        "reviewerName": "Emma Davis",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/27.jpg",
+        "rating": 9.2,
+        "date": "2025-04-06",
+        "content": "The character development is phenomenal. Watching Gon and Killua grow throughout the series is incredibly rewarding.",
+        "likes": 267,
+        "helpful": true
+      }
+    ],
+    "9": [
+      {
+        "id": 10,
+        "reviewerId": "user10",
+        "reviewerName": "Ryan Lee",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/10.jpg",
+        "rating": 9.0,
+        "date": "2025-04-24",
+        "content": "Jujutsu Kaisen has amazing animation and a great story. The characters are well-developed, and the power system is unique and interesting.",
+        "likes": 234,
+        "helpful": true
+      },
+      {
+        "id": 28,
+        "reviewerId": "user28",
+        "reviewerName": "Lucas Martin",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/28.jpg",
+        "rating": 9.1,
+        "date": "2025-04-05",
+        "content": "Jujutsu Kaisen's fights are choreographed beautifully. The cursed energy system adds strategic depth to every battle.",
+        "likes": 289,
+        "helpful": true
+      },
+      {
+        "id": 29,
+        "reviewerId": "user29",
+        "reviewerName": "Hannah Kim",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/29.jpg",
+        "rating": 9.2,
+        "date": "2025-04-04",
+        "content": "The balance between humor and serious moments is perfect. The characters feel real despite their extraordinary abilities.",
+        "likes": 312,
+        "helpful": true
+      }
+    ],
+    "10": [
+      {
+        "id": 11,
+        "reviewerId": "user11",
+        "reviewerName": "Julia White",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/11.jpg",
+        "rating": 8.9,
+        "date": "2025-04-25",
+        "content": "Code Geass is a masterpiece of strategic warfare and moral ambiguity. Lelouch is one of the most compelling protagonists in anime history.",
+        "likes": 267,
+        "helpful": true
+      },
+      {
+        "id": 30,
+        "reviewerId": "user30",
+        "reviewerName": "Benjamin Foster",
+        "reviewerImage": "https://randomuser.me/api/portraits/men/30.jpg",
+        "rating": 9.0,
+        "date": "2025-04-03",
+        "content": "Code Geass has some of the best plot twists in anime. The strategic elements and mecha battles are excellently integrated.",
+        "likes": 245,
+        "helpful": true
+      },
+      {
+        "id": 31,
+        "reviewerId": "user31",
+        "reviewerName": "Grace Thompson",
+        "reviewerImage": "https://randomuser.me/api/portraits/women/31.jpg",
+        "rating": 8.8,
+        "date": "2025-04-02",
+        "content": "The show tackles complex themes of nationalism and rebellion thoughtfully. The ending is one of the most satisfying in anime.",
+        "likes": 223,
+        "helpful": true
+      }
+    ]
+  }
+}

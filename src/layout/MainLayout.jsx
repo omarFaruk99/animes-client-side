@@ -5,13 +5,13 @@ import Footer from "./Footer.jsx";
 
 const MainLayout = () => {
     return (
-        <div>
+        <>
             <Navbar></Navbar>
-            <main>
+            <main className="min-h-[calc(100vh-262px)]">
                 <Outlet></Outlet>
             </main>
             <Footer></Footer>
-        </div>
+        </>
     );
 };
 
