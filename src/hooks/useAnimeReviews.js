@@ -11,7 +11,10 @@ export const useAnimeReviews = (animeId) => {
             try {
                 setLoading(true);
                 const response = await axios.get('/src/data/reviews.json');
-                const animeReviews = response.data.reviews[animeId] || [];
+                // Filter reviews for specific anime
+                const animeReviews = response.data.reviews.filter(
+                    review => review.animeId === parseInt(animeId)
+                );
                 setReviews(animeReviews);
                 setError(null);
             } catch (err) {
