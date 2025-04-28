@@ -68,15 +68,15 @@ const SignUp = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#334155] py-12 px-4 sm:px-6 lg:px-8 relative">
+        <div className="min-h-screen flex items-center justify-center bg-[#0B1622] py-12 px-4 sm:px-6 lg:px-8">
             {/* Background design elements */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-32 w-96 h-96 rounded-full bg-purple-500/20 blur-3xl"></div>
-                <div className="absolute -bottom-40 -left-32 w-96 h-96 rounded-full bg-blue-500/20 blur-3xl"></div>
+                <div className="absolute -top-40 -right-32 w-96 h-96 rounded-full bg-sky-500/10 blur-3xl"></div>
+                <div className="absolute -bottom-40 -left-32 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"></div>
             </div>
 
-            <div className="flex justify-center items-center relative z-10">
-                <div className="card w-full md:w-[450px] backdrop-blur-xl bg-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl p-8 border border-white/20">
+            <div className="flex justify-center items-center relative z-10 w-full max-w-md">
+                <div className="card w-full backdrop-blur-xl bg-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-2xl p-8 border border-white/10">
                     <form onSubmit={handleSubmit(handleSignUp)} className="space-y-6">
                         <h2 className="text-center text-2xl font-bold text-white mb-8">
                             Create Account
@@ -242,8 +242,8 @@ const SignUp = () => {
                                 type="submit"
                                 disabled={loading}
                                 className="w-full py-3 px-4 rounded-lg text-white font-medium
-                bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600
-                focus:ring-2 focus:ring-purple-500 focus:ring-offset-2
+                bg-gradient-to-r from-sky-400 to-blue-500 hover:from-blue-500 hover:to-blue-400
+                focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
                 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed
                 shadow-lg shadow-purple-500/30"
                             >
@@ -263,11 +263,11 @@ const SignUp = () => {
                     </div>
 
                     {/* Login link */}
-                    <p className="mt-4 text-center text-sm text-white/70">
+                    <p className="mt-4 text-center text-sm text-gray-400">
                         Already have an account?{" "}
                         <Link
                             to="/login"
-                            className="font-medium text-blue-400 hover:text-blue-300"
+                            className="font-medium text-sky-400 hover:text-sky-300"
                         >
                             Login here
                         </Link>

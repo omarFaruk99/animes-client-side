@@ -70,22 +70,19 @@ const Navbar = () => {
                         ))}
                     </div>
 
-                    {/* User Profile/Sign In */}
+                    {/* User Profile/Sign In/Sign Up */}
                     <div className="hidden md:flex items-center space-x-4">
                         {user ? (
                             <div className="relative">
                                 <button
                                     onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                                    className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-white/5 transition-colors duration-300 group"
+                                    className="p-1.5 rounded-lg hover:bg-white/5 transition-colors duration-300 group"
                                 >
                                     <img 
                                         src={user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName)}
                                         alt={user.displayName}
                                         className="h-8 w-8 rounded-full object-cover ring-2 ring-white/10 group-hover:ring-sky-500/50 transition-all duration-300"
                                     />
-                                    <span className="text-sm font-medium text-gray-300 group-hover:text-sky-400">
-                                        {user.displayName?.split(' ')[0]}
-                                    </span>
                                 </button>
 
                                 {/* Profile Dropdown */}
@@ -108,23 +105,36 @@ const Navbar = () => {
                                 )}
                             </div>
                         ) : (
-                            <Link
-                                to="/login"
-                                className="px-6 py-2 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/25"
-                            >
-                                Sign In
-                            </Link>
+                            <>
+                                <Link
+                                    to="/login"
+                                    className="px-6 py-2 rounded-lg bg-white/10 text-white text-sm font-medium transition-all duration-300 hover:bg-white/20"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    to="/signup"
+                                    className="px-6 py-2 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-sky-500/25"
+                                >
+                                    Sign Up
+                                </Link>
+                            </>
                         )}
                     </div>
 
                     {/* Mobile Menu Button */}
                     <div className="md:hidden flex items-center space-x-4">
                         {user && (
-                            <img 
-                                src={user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName)}
-                                alt={user.displayName}
-                                className="h-8 w-8 rounded-full object-cover ring-2 ring-white/10"
-                            />
+                            <button
+                                onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                                className="p-1"
+                            >
+                                <img 
+                                    src={user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName)}
+                                    alt={user.displayName}
+                                    className="h-8 w-8 rounded-full object-cover ring-2 ring-white/10"
+                                />
+                            </button>
                         )}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -188,13 +198,22 @@ const Navbar = () => {
                             </button>
                         </>
                     ) : (
-                        <Link
-                            to="/login"
-                            className="block px-4 py-3 mt-2 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-base font-medium transition-all duration-300"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Sign In
-                        </Link>
+                        <>
+                            <Link
+                                to="/login"
+                                className="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5 mb-2"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Login
+                            </Link>
+                            <Link
+                                to="/signup"
+                                className="block px-4 py-3 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-base font-medium transition-all duration-300"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                Sign Up
+                            </Link>
+                        </>
                     )}
                 </div>
             </div>
