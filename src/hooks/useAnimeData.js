@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const useAnimeData = (type = 'topAnime') => {
+export const useAnimeData = (type = 'all') => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -11,16 +11,24 @@ export const useAnimeData = (type = 'topAnime') => {
             try {
                 setLoading(true);
                 const response = await axios.get('/src/data/animeData.json');
-                // Get saved list status from localStorage
                 const savedStatuses = JSON.parse(localStorage.getItem('animeListStatuses') || '{}');
                 
-                // Merge saved statuses with fetched data
-                const dataWithStatus = response.data[type].map(anime => ({
+                // Sort animes by rating and assign ranks
+                let animes = response.data.animes.map(anime => ({
                     ...anime,
-                    status: savedStatuses[anime.id] || false
+                    status: savedStatuses[anime.id] || false,
+                    rating: parseFloat(anime.rating)
                 }));
                 
-                setData(dataWithStatus);
+                // Sort by rating and assign calculated ranks
+                animes.sort((a, b) => b.rating - a.rating);
+                
+                // Filter based on type if needed
+                if (type === 'featured') {
+                    animes = animes.filter(anime => anime.isFeatured);
+                }
+                
+                setData(animes);
                 setError(null);
             } catch (err) {
                 setError('Failed to fetch anime data');
@@ -39,7 +47,6 @@ export const useAnimeData = (type = 'topAnime') => {
                 anime.id === animeId ? { ...anime, status: !anime.status } : anime
             );
             
-            // Save updated statuses to localStorage
             const savedStatuses = JSON.parse(localStorage.getItem('animeListStatuses') || '{}');
             const updatedAnime = newData.find(a => a.id === animeId);
             if (updatedAnime) {

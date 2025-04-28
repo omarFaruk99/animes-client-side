@@ -5,10 +5,12 @@ import { useAnimeReviews } from '../../hooks/useAnimeReviews';
 
 const AnimeDetails = () => {
     const { id } = useParams();
-    const { data: animes, loading, error, toggleAnimeStatus } = useAnimeData('topAnime');
+    const { data: animes, loading, error, toggleAnimeStatus } = useAnimeData('all');
     const { reviews, loading: reviewsLoading, error: reviewsError } = useAnimeReviews(id);
     
+    // Find the anime and its position based on rating
     const anime = animes?.find(a => a.id === parseInt(id));
+    const animePosition = animes?.findIndex(a => a.id === parseInt(id)) + 1;
 
     if (loading) return (
         <div className="min-h-screen flex items-center justify-center bg-[#0B1622]">
@@ -77,7 +79,7 @@ const AnimeDetails = () => {
                                         {anime.year}
                                     </div>
                                     <div className="px-4 py-2 rounded-full bg-violet-500/10 backdrop-blur-sm border border-violet-500/20 shadow-lg shadow-violet-500/5">
-                                        Rank #{anime.rank}
+                                        Top #{animePosition}
                                     </div>
                                     <div className="px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 shadow-lg shadow-white/5 flex items-center gap-2">
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

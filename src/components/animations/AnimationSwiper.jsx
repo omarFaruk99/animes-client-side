@@ -9,12 +9,15 @@ import 'swiper/css/pagination';
 import './styles.css';
 
 const AnimationSwiper = () => {
-    const { data: animes } = useAnimeData('featuredAnime');
+    const { data: animes } = useAnimeData('animes');
+    
+    // Filter only featured animes
+    const featuredAnimes = animes?.filter(anime => anime.isFeatured) || [];
 
-    if (!animes?.length) return null;
+    if (!featuredAnimes?.length) return null;
 
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-full max-w-7xl mx-auto">
             <Swiper
                 modules={[Pagination, FreeMode, Autoplay]}
                 slidesPerView={1}
@@ -46,7 +49,7 @@ const AnimationSwiper = () => {
                 }}
                 className="mySwiper"
             >
-                {animes.map((anime) => (
+                {featuredAnimes.map((anime) => (
                     <SwiperSlide key={anime.id}>
                         <div className="relative w-full h-full group rounded-lg overflow-hidden">
                             <img
