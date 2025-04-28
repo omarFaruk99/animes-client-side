@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// The 'type' parameter is used to filter animes. It can be:
+// - 'all' (default): shows all animes
+// - 'featured': shows only special/featured animes
 export const useAnimeData = (type = 'all') => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -10,20 +13,30 @@ export const useAnimeData = (type = 'all') => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('/src/data/animeData.json');
+                // const response = await axios.get('/src/data/animeData.json');
+
+                const response = await axios.get('http://192.168.68.150:8080/anime');
+
+                // Get saved anime statuses from browser's localStorage
+                // If nothing is saved, use empty object {}
                 const savedStatuses = JSON.parse(localStorage.getItem('animeListStatuses') || '{}');
                 
-                // Sort animes by rating and assign ranks
-                let animes = response.data.animes.map(anime => ({
+                // Transform each anime object:
+                // 1. Keep all original properties using ...anime
+                // 2. Add status from localStorage (or false if not found)
+                // 3. Convert rating from string to number
+                let animes = response.data.map(anime => ({
                     ...anime,
                     status: savedStatuses[anime.id] || false,
                     rating: parseFloat(anime.rating)
                 }));
                 
-                // Sort by rating and assign calculated ranks
+                // Sort animes by rating (highest to lowest)
+                // Example: [9.5, 8.7, 7.2]
                 animes.sort((a, b) => b.rating - a.rating);
                 
-                // Filter based on type if needed
+                // If type is 'featured', only keep animes where isFeatured is true
+                // Example usage: useAnimeData('featured')
                 if (type === 'featured') {
                     animes = animes.filter(anime => anime.isFeatured);
                 }
