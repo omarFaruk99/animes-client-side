@@ -20,6 +20,7 @@ const SocialLogin = () => {
                     email: result.user?.email,
                     photoUrl: result.user?.photoURL,
                 };
+                console.log("social Login userInfo=========>",userInfo)
                 navigate("/")
                 // axiosPublic
                 //     .post("/users", userInfo)

@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import useAxiosPublic from "./useAxiosPublic.jsx";
 
 export const useAnimeReviews = (animeId) => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const axiosPublic = useAxiosPublic()
 
     useEffect(() => {
         const fetchReviews = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('/src/data/reviews.json');
+                const response = await axiosPublic.get('/anime/comments');
                 // Filter reviews for specific anime
-                const animeReviews = response.data.reviews.filter(
+                const animeReviews = response.data.filter(
                     review => review.animeId === parseInt(animeId)
                 );
                 setReviews(animeReviews);
@@ -30,3 +31,4 @@ export const useAnimeReviews = (animeId) => {
 
     return { reviews, loading, error };
 };
+

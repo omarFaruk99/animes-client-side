@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 // import useAxiosPublic from "../hooks/useAxiosPublic";
 import {Link, useNavigate} from "react-router";
 import useAuth from "../../hooks/useAuth.jsx";
+import useAxiosPublic from "../../hooks/useAxiosPublic.jsx";
 // import SocialLogin from "./SocialLogin";
 // import AuthContext from "../provider/AuthContext";
 // import useAxiosPublic from "../Hook/useAxiosPublic";
@@ -18,7 +19,7 @@ const SignUp = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // const axiosPublic = useAxiosPublic();
+    const axiosPublic = useAxiosPublic()
 
     // Initialize react-hook-form with watch to compare passwords
     const {
@@ -51,8 +52,11 @@ const SignUp = () => {
                 photoUrl: data.photoUrl,
             };
 
+            console.log("signupUser data=========>",userInfo)
+
             // save signup user data into database
-            // await axiosPublic.post("/users", userInfo);
+            await axiosPublic.post("/user", userInfo);
+
 
             toast.success("Account created successfully!");
             reset(); // Clear form

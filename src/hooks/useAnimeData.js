@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import useAxiosPublic from "./useAxiosPublic.jsx";
 
 // The 'type' parameter is used to filter animes. It can be:
 // - 'all' (default): shows all animes
 // - 'featured': shows only special/featured animes
 export const useAnimeData = (type = 'all') => {
+    const axiosPublic = useAxiosPublic()
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -15,7 +16,7 @@ export const useAnimeData = (type = 'all') => {
                 setLoading(true);
                 // const response = await axios.get('/src/data/animeData.json');
 
-                const response = await axios.get('http://192.168.68.150:8080/anime');
+                const response = await axiosPublic.get('/anime')
 
                 // Get saved anime statuses from browser's localStorage
                 // If nothing is saved, use empty object {}
