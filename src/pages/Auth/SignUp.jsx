@@ -57,7 +57,6 @@ const SignUp = () => {
             // save signup user data into database
             await axiosPublic.post("/user", userInfo);
 
-
             toast.success("Account created successfully!");
             reset(); // Clear form
             navigate("/"); // Direct navigation to home
