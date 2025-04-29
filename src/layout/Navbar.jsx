@@ -43,13 +43,13 @@ const Navbar = () => {
             : 'bg-transparent'
         }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center h-16">
+                <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <Link to="/" className="flex items-center space-x-3 group">
                         <img 
                             src={logo} 
                             alt="Animes Cafe" 
-                            className="h-10 w-auto rounded-sm transform transition-transform duration-300 group-hover:scale-110"
+                            className="h-6 w-auto sm:h-8 md:h-10 rounded-sm transform transition-transform duration-300 group-hover:scale-110"
                         />
                     </Link>
 
@@ -122,26 +122,54 @@ const Navbar = () => {
                         )}
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className="md:hidden flex items-center space-x-4">
+                    {/* Mobile Menu Button and Profile */}
+                    <div className="flex md:hidden items-center space-x-2">
                         {user && (
-                            <button
-                                onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                                className="p-1"
-                            >
-                                <img 
-                                    src={user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName)}
-                                    alt={user.displayName}
-                                    className="h-8 w-8 rounded-full object-cover ring-2 ring-white/10"
-                                />
-                            </button>
+                            <div className="relative">
+                                <button
+                                    onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
+                                    className="p-1 rounded-lg hover:bg-white/5 transition-colors duration-300"
+                                >
+                                    <img 
+                                        src={user.photoURL || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.displayName)}
+                                        alt={user.displayName}
+                                        className="h-7 w-7 sm:h-8 sm:w-8 rounded-full object-cover ring-2 ring-white/10"
+                                    />
+                                </button>
+
+                                {/* Mobile Profile Dropdown */}
+                                {isProfileMenuOpen && (
+                                    <div className="absolute right-0 mt-2 w-48 bg-[#0B1622]/95 backdrop-blur-xl rounded-lg shadow-lg ring-1 ring-white/10 py-1">
+                                        <Link
+                                            to="/profile"
+                                            className="block px-4 py-2 text-sm text-gray-300 hover:bg-sky-500/10 hover:text-sky-400"
+                                            onClick={() => {
+                                                setIsProfileMenuOpen(false);
+                                                setIsMobileMenuOpen(false);
+                                            }}
+                                        >
+                                            My Profile
+                                        </Link>
+                                        <button
+                                            onClick={() => {
+                                                handleSignOut();
+                                                setIsMobileMenuOpen(false);
+                                            }}
+                                            className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-sky-500/10 hover:text-sky-400"
+                                        >
+                                            Sign Out
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         )}
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-sky-400 hover:bg-white/5 transition-colors duration-300"
+                            className="p-2 rounded-lg text-gray-400 hover:text-sky-400 hover:bg-white/5 transition-colors duration-300"
+                            aria-label="Toggle mobile menu"
                         >
                             <svg
-                                className={`h-6 w-6 transition-transform duration-300 ${isMobileMenuOpen ? 'transform rotate-180' : ''}`}
+                                className={`h-5 w-5 sm:h-6 sm:w-6 transition-transform duration-300 ${isMobileMenuOpen ? 'transform rotate-180' : ''}`}
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -163,12 +191,12 @@ const Navbar = () => {
                 ? 'max-h-screen opacity-100 visible'
                 : 'max-h-0 opacity-0 invisible'
             }`}>
-                <div className="px-4 pt-2 pb-3 bg-[#0B1622]/95 backdrop-blur-lg border-t border-white/5">
+                <div className="px-4 pt-2 pb-3 bg-[#0B1622]/95 backdrop-blur-lg border-t border-white/5 space-y-1">
                     {navLinks.map((link) => (
                         <Link
                             key={link.path}
                             to={link.path}
-                            className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ${
+                            className={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 isActivePath(link.path)
                                 ? 'bg-sky-500/20 text-sky-400'
                                 : 'text-gray-300 hover:text-sky-400 hover:bg-white/5'
@@ -178,42 +206,23 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    {user ? (
-                        <>
-                            <Link
-                                to="/profile"
-                                className="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                My Profile
-                            </Link>
-                            <button
-                                onClick={() => {
-                                    handleSignOut();
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="w-full text-left px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5"
-                            >
-                                Sign Out
-                            </button>
-                        </>
-                    ) : (
-                        <>
+                    {!user && (
+                        <div className="space-y-1 pt-2">
                             <Link
                                 to="/login"
-                                className="block px-4 py-3 rounded-lg text-base font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5 mb-2"
+                                className="block w-full px-4 py-2.5 rounded-lg text-sm font-medium text-gray-300 hover:text-sky-400 hover:bg-white/5 text-center"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Login
                             </Link>
                             <Link
                                 to="/signup"
-                                className="block px-4 py-3 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-base font-medium transition-all duration-300"
+                                className="block w-full px-4 py-2.5 rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 text-white text-sm font-medium transition-all duration-300 text-center"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Sign Up
                             </Link>
-                        </>
+                        </div>
                     )}
                 </div>
             </div>
