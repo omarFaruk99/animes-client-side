@@ -4,26 +4,22 @@ import { Link } from "react-router";
 
 const TopAnime = () => {
     const { data: animes, loading } = useAnimeData('all');
-    const [selectedGenre, setSelectedGenre] = useState('all');
-    const [selectedYear, setSelectedYear] = useState('all');
+    const [searchQuery, setSearchQuery] = useState('');
     const [sortBy, setSortBy] = useState('rating');
     const [viewMode, setViewMode] = useState('table');
-
-    const genres = ['Action', 'Adventure', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Romance', 'Sci-Fi'];
-    const years = ['2025', '2024', '2023', '2022', '2021', '2020'];
 
     const filterAnimes = useCallback(() => {
         if (!animes) return [];
         return animes.filter(anime => {
-            const genreMatch = selectedGenre === 'all' || anime.genres?.includes(selectedGenre);
-            const yearMatch = selectedYear === 'all' || anime.year?.toString() === selectedYear;
-            return genreMatch && yearMatch;
+            const searchMatch = searchQuery === '' || 
+                anime.title.toLowerCase().includes(searchQuery.toLowerCase());
+            return searchMatch;
         }).sort((a, b) => {
             if (sortBy === 'rating') return b.rating - a.rating;
             if (sortBy === 'year') return b.year - a.year;
             return 0;
         });
-    }, [animes, selectedGenre, selectedYear, sortBy]);
+    }, [animes, searchQuery, sortBy]);
 
     if (loading) return (
         <div className="min-h-screen flex items-center justify-center bg-[#0B1622]">
@@ -58,74 +54,74 @@ const TopAnime = () => {
             {/* Filters Section */}
             <div className="max-w-7xl mx-auto px-4 mb-8">
                 <div className="bg-white/5 backdrop-blur-xl rounded-xl p-6 border border-white/10">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        {/* Genre Filter */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Genre</label>
-                            <select
-                                value={selectedGenre}
-                                onChange={(e) => setSelectedGenre(e.target.value)}
-                                className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-                            >
-                                <option value="all">All Genres</option>
-                                {genres.map(genre => (
-                                    <option key={genre} value={genre}>{genre}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        {/* Year Filter */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Year</label>
-                            <select
-                                value={selectedYear}
-                                onChange={(e) => setSelectedYear(e.target.value)}
-                                className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-                            >
-                                <option value="all">All Years</option>
-                                {years.map(year => (
-                                    <option key={year} value={year}>{year}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        {/* Sort By */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">Sort By</label>
-                            <select
-                                value={sortBy}
-                                onChange={(e) => setSortBy(e.target.value)}
-                                className="w-full bg-white/10 border border-white/10 rounded-lg px-4 py-2.5 text-white focus:ring-2 focus:ring-sky-500 focus:border-sky-500"
-                            >
-                                <option value="rating">Rating</option>
-                                <option value="year">Year</option>
-                            </select>
-                        </div>
-
-                        {/* View Mode Toggle */}
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium text-gray-300">View Mode</label>
-                            <div className="flex gap-2">
-                                <button
-                                    onClick={() => setViewMode('table')}
-                                    className={`flex-1 px-4 py-2.5 rounded-lg border ${
-                                        viewMode === 'table'
-                                            ? 'bg-sky-500 border-sky-400 text-white'
-                                            : 'bg-white/10 border-white/10 text-gray-300 hover:bg-sky-500/10'
-                                    } transition-all duration-300`}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {/* Search Input */}
+                        <div className="space-y-2 md:col-span-2">
+                            <label className="text-sm font-medium text-gray-300">Search Anime</label>
+                            <div className="relative">
+                                <input
+                                    type="text"
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    placeholder="Search by title..."
+                                    className="w-full px-4 py-2.5 pl-10 rounded-lg bg-black/20 border border-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-violet-500 focus:border-violet-500 transition-all duration-300"
+                                />
+                                <svg
+                                    className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
                                 >
-                                    Table
-                                </button>
-                                <button
-                                    onClick={() => setViewMode('grid')}
-                                    className={`flex-1 px-4 py-2.5 rounded-lg border ${
-                                        viewMode === 'grid'
-                                            ? 'bg-sky-500 border-sky-400 text-white'
-                                            : 'bg-white/10 border-white/10 text-gray-300 hover:bg-sky-500/10'
-                                    } transition-all duration-300`}
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {/* Sort and View Controls */}
+                        <div className="grid grid-cols-2 gap-4">
+                            {/* Sort By */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-300">Sort By</label>
+                                <select
+                                    value={sortBy}
+                                    onChange={(e) => setSortBy(e.target.value)}
+                                    className="w-full px-4 py-2.5 rounded-lg bg-black/20 border border-white/10 text-sky-400 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 transition-all duration-300"
                                 >
-                                    Grid
-                                </button>
+                                    <option value="rating" className="bg-[#0B1622] text-sky-400">Rating</option>
+                                    <option value="year" className="bg-[#0B1622] text-sky-400">Year</option>
+                                </select>
+                            </div>
+
+                            {/* View Mode Toggle */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-300">View Mode</label>
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => setViewMode('table')}
+                                        className={`flex-1 px-4 py-2.5 rounded-lg border ${
+                                            viewMode === 'table'
+                                                ? 'bg-sky-500 border-sky-400 text-white'
+                                                : 'bg-black/20 border-white/10 text-gray-300 hover:bg-violet-500/10'
+                                        } transition-all duration-300`}
+                                    >
+                                        Table
+                                    </button>
+                                    <button
+                                        onClick={() => setViewMode('grid')}
+                                        className={`flex-1 px-4 py-2.5 rounded-lg border ${
+                                            viewMode === 'grid'
+                                                ? 'bg-sky-500 border-sky-400 text-white'
+                                                : 'bg-black/20 border-white/10 text-gray-300 hover:bg-violet-500/10'
+                                        } transition-all duration-300`}
+                                    >
+                                        Grid
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -216,7 +212,7 @@ const TopAnime = () => {
                                     <div className="absolute bottom-0 p-4 w-full">
                                         <div className="space-y-2">
                                             <div className="flex items-center gap-2">
-                                                <span className="px-2 py-1 rounded-md bg-violet-500/20 text-violet-400 text-xs font-medium">
+                                                <span className="px-2 py-1 rounded-md bg-violet-500/20 text-sky-400 text-xs font-medium">
                                                     #{index + 1}
                                                 </span>
                                                 <div className="flex items-center gap-1">
