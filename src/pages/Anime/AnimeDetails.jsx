@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { useAnimeData } from '../../hooks/useAnimeData';
 import { useAnimeReviews } from '../../hooks/useAnimeReviews';
+import { useWishlist } from '../../hooks/useWishlist';
 import ReviewModal from '../../components/ReviewModal';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router';
@@ -12,8 +13,9 @@ const AnimeDetails = () => {
     const { user } = useAuth();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { data: animes, loading, error, toggleAnimeStatus } = useAnimeData('all');
+    const { data: animes, loading, error } = useAnimeData('all');
     const { reviews, loading: reviewsLoading, error: reviewsError, refetch: refetchReviews } = useAnimeReviews(id);
+    const { toggleWishlist, isInWishlist } = useWishlist(user?.email);
 
     const handleWriteReview = () => {
         if (!user) {
@@ -22,6 +24,15 @@ const AnimeDetails = () => {
             return;
         }
         setIsModalOpen(true);
+    };
+
+    const handleToggleWishlist = async () => {
+        if (!user) {
+            toast.error('Please login to add to wishlist');
+            navigate('/login');
+            return;
+        }
+        await toggleWishlist(anime, user.email);
     };
 
     // Find the anime and its position based on rating
@@ -110,14 +121,14 @@ const AnimeDetails = () => {
                                 </p>
 
                                 <button
-                                    onClick={() => toggleAnimeStatus(anime.id)}
+                                    onClick={handleToggleWishlist}
                                     className={`inline-flex items-center gap-2 px-6 md:px-8 py-2.5 md:py-3 rounded-lg text-sm font-medium transition-all duration-500 transform hover:scale-105 ${
-                                        anime.status 
+                                        isInWishlist(parseInt(id))
                                         ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:shadow-lg hover:shadow-green-500/25' 
                                         : 'bg-gradient-to-r from-sky-400 to-blue-500 text-white hover:shadow-lg hover:shadow-sky-500/25'
                                     }`}
                                 >
-                                    {anime.status ? (
+                                    {isInWishlist(parseInt(id)) ? (
                                         <>
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />

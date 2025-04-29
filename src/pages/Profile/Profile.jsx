@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useAnimeData } from '../../hooks/useAnimeData';
 import { useUserComments } from '../../hooks/useUserComments';
+import { useWishlist } from '../../hooks/useWishlist';
 import { Link } from 'react-router';
 
 const Profile = () => {
     const { user } = useAuth();
-    const { data: animes } = useAnimeData('topAnime');
     const { comments, loading: commentsLoading, error: commentsError } = useUserComments(user?.email);
+    const { wishlist, loading: wishlistLoading, error: wishlistError } = useWishlist(user?.email);
     const [activeTab, setActiveTab] = useState('watchlist');
-    
-    // Filter animes that are in user's watchlist (status: true)
-    const watchlist = animes.filter(anime => anime.status);
 
     if (!user) {
         return (
@@ -75,11 +72,21 @@ const Profile = () => {
                 {/* Watchlist Content */}
                 {activeTab === 'watchlist' && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-6">
-                        {watchlist.length > 0 ? (
-                            watchlist.map((anime, index) => (
+                        {wishlistLoading ? (
+                            <div className="col-span-full flex justify-center py-12">
+                                <div className="animate-spin rounded-full h-8 w-8 border-2 border-sky-500 border-t-transparent"></div>
+                            </div>
+                        ) : wishlistError ? (
+                            <div className="col-span-full text-center py-12">
+                                <div className="bg-red-500/10 backdrop-blur-xl rounded-lg p-6 inline-block">
+                                    <p className="text-red-400">{wishlistError}</p>
+                                </div>
+                            </div>
+                        ) : wishlist.length > 0 ? (
+                            wishlist.map((anime, index) => (
                                 <Link
-                                    key={anime.id}
-                                    to={`/anime/${anime.id}`}
+                                    key={anime.animeId}
+                                    to={`/anime/${anime.animeId}`}
                                     className="group relative aspect-[2/3] rounded-xl overflow-hidden bg-gray-800/30 backdrop-blur-sm ring-1 ring-white/10 animate-fadeIn"
                                     style={{ animationDelay: `${index * 50}ms` }}
                                 >
